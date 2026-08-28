@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react'
-import { Cloud, Container, GitBranch, Monitor, Code, Star, Zap, TrendingUp, Award, Sparkles } from 'lucide-react'
+import { Cloud, Container, GitBranch, Monitor, Code, Star, TrendingUp, Award, Sparkles } from 'lucide-react'
+import BrandLogo from './BrandLogo'
 
 const Skills = () => {
   const [activeTab, setActiveTab] = useState('All Skills')
@@ -271,17 +272,11 @@ const Skills = () => {
 
       <div className="max-w-7xl mx-auto relative z-10">
         <div className="text-center mb-16">
-          <div className="inline-flex items-center gap-2 px-4 py-2 bg-blue-100 dark:bg-blue-900/30 border border-blue-200 dark:border-blue-800 rounded-full text-blue-600 dark:text-blue-400 text-sm font-medium mb-6">
-            <Zap className="w-4 h-4" />
-            My Technical Arsenal
-          </div>
-          <h2 className="text-5xl font-bold mb-6">
-            <span className="bg-gradient-to-r from-blue-600 via-purple-600 to-pink-600 bg-clip-text text-transparent">
-              Skills & Expertise
-            </span>
+          <h2 className="text-4xl font-bold mb-4 bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">
+            Skills & Expertise
           </h2>
-          <p className="text-lg text-gray-600 dark:text-gray-300 max-w-3xl mx-auto">
-            A comprehensive toolkit mastered through years of hands-on experience in modern DevOps practices
+          <p className="text-base text-gray-600 dark:text-gray-400 max-w-2xl mx-auto">
+            Bộ công cụ và nền tảng được tích lũy qua kinh nghiệm thực tế trong vận hành hệ thống và triển khai DevOps.
           </p>
         </div>
 
@@ -325,8 +320,8 @@ const Skills = () => {
               <div className={`absolute inset-0 bg-gradient-to-br ${skill.color} opacity-0 group-hover:opacity-10 transition-opacity duration-500`}></div>
 
               <div className="relative mb-4">
-                <div className={`w-16 h-16 rounded-2xl bg-gradient-to-br ${skill.color} flex items-center justify-center text-3xl shadow-lg group-hover:scale-110 group-hover:rotate-12 transition-all duration-500`}>
-                  {skill.icon}
+                <div className="w-16 h-16 rounded-2xl bg-white border border-gray-200 flex items-center justify-center shadow-lg group-hover:scale-110 group-hover:-rotate-3 transition-all duration-500">
+                  <BrandLogo name={skill.shortName} size={40} />
                 </div>
                 {hoveredSkill === skill.name && (
                   <div className="absolute -top-2 -right-2 w-8 h-8 bg-green-500 rounded-full flex items-center justify-center animate-bounce">

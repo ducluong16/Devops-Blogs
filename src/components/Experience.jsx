@@ -4,49 +4,42 @@ import { Building, MapPin, Calendar, ChevronRight } from 'lucide-react'
 const Experience = () => {
   const experiences = [
     {
-      title: 'Senior DevOps Engineer',
-      company: 'TechCorp Solutions',
-      location: 'San Francisco, CA',
-      period: '2022 - Present',
-      type: 'Full-time',
-      description: 'Leading DevOps initiatives for a fast-growing fintech company, managing cloud infrastructure for 10M+ users.',
+      title: 'DevOps Engineer',
+      company: 'Techlab Technology',
+      location: '19 Tố Hữu Street, Hanoi',
+      period: '2026 – Present',
+      type: 'Cloud',
+      description: 'Operating cloud infrastructure, Kubernetes platforms, delivery pipelines, security services, observability, and database environments across multiple projects.',
       achievements: [
-        'Architected and implemented microservices infrastructure on AWS using Kubernetes',
-        'Reduced deployment time from 2 hours to 15 minutes through CI/CD automation',
-        'Led migration from monolithic to containerized architecture, improving scalability by 300%',
-        'Implemented comprehensive monitoring and alerting systems, reducing MTTR by 60%',
-        'Mentored junior engineers and established DevOps best practices across the organization'
+        'Managed Kubernetes clusters across multiple projects and environments.',
+        'Supported CI/CD deployments across Dev, Test, Staging, and Production environments.',
+        'Managed secrets using HashiCorp Vault integrated with Kubernetes.',
+        'Integrated Keycloak and Google authentication for internal applications.',
+        'Managed infrastructure using Terraform and GitOps with Argo CD.',
+        'Implemented monitoring with Prometheus and Grafana, and centralized logging with the ELK Stack.',
+        'Built and managed VPN infrastructure for internal systems.',
+        'Managed Dev, Test, and Staging databases.',
+        'Supported developers in debugging application and system issues.',
+        'Managed infrastructure on Google Cloud and OpenStack.'
       ],
-      technologies: ['AWS', 'Kubernetes', 'Docker', 'Terraform', 'Jenkins', 'Prometheus']
+      technologies: ['Kubernetes', 'CI/CD', 'Terraform', 'Argo CD', 'Vault', 'Keycloak', 'Prometheus', 'Grafana', 'ELK', 'GCP', 'OpenStack', 'Linux', 'Database']
     },
     {
       title: 'DevOps Engineer',
-      company: 'CloudTech Inc',
-      location: 'Seattle, WA',
-      period: '2020 - 2022',
-      type: 'Full-time',
-      description: 'Managed cloud infrastructure and automated deployment pipelines for multiple client projects.',
+      company: 'ETC Technology Systems JSC',
+      location: '63 Lê Văn Lương Street, Hanoi',
+      period: '2025 – 2026',
+      type: 'On-Premises',
+      description: 'Operated on-premises Kubernetes platforms, CI/CD pipelines, databases, and application environments for multiple internal and customer projects.',
       achievements: [
-        'Designed and implemented CI/CD pipelines using Jenkins and GitLab',
-        'Automated infrastructure provisioning using Terraform and Ansible',
-        'Migrated legacy applications to containerized environments',
-        'Established monitoring and logging solutions using ELK stack'
+        'Managed multiple large-scale Kubernetes clusters across Dev, Test, and UAT environments, supporting multiple internal projects.',
+        'Built and maintained CI/CD pipelines for automated testing, application builds, and deployments.',
+        'Supported development teams in debugging and troubleshooting application, deployment, and infrastructure issues.',
+        'Assisted customers with application deployment and troubleshooting in production environments.',
+        'Assisted in building and configuring Kubernetes and database clusters based on specialized project requirements.',
+        'Managed and maintained test environment databases for selected projects.'
       ],
-      technologies: ['AWS', 'Docker', 'Jenkins', 'Terraform', 'Ansible', 'ELK']
-    },
-    {
-      title: 'Junior DevOps Engineer',
-      company: 'StartupXYZ',
-      location: 'Austin, TX',
-      period: '2019 - 2020',
-      type: 'Full-time',
-      description: 'Started my DevOps journey, focusing on automation and cloud infrastructure.',
-      achievements: [
-        'Automated deployment processes reducing manual effort by 80%',
-        'Implemented backup and disaster recovery solutions',
-        'Maintained and optimized existing infrastructure'
-      ],
-      technologies: ['AWS', 'Python', 'Bash', 'Git', 'Linux']
+      technologies: ['Kubernetes', 'Docker', 'CI/CD', 'Git', 'Linux', 'Database', 'DevOps']
     }
   ]
 
@@ -54,12 +47,11 @@ const Experience = () => {
     <section id="experience" className="py-20 bg-gray-50 dark:bg-gray-800">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-16">
-          <h2 className="text-4xl font-bold text-gray-900 dark:text-white mb-4">
+          <h2 className="text-4xl font-bold mb-4 bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">
             Professional Experience
           </h2>
-          <div className="w-20 h-1 bg-gradient-to-r from-blue-600 to-purple-600 mx-auto mb-6"></div>
-          <p className="text-lg text-gray-600 dark:text-gray-300 max-w-3xl mx-auto">
-            A journey through various roles that shaped my expertise in DevOps, cloud infrastructure, and automation.
+          <p className="text-base text-gray-600 dark:text-gray-400 max-w-2xl mx-auto">
+            Kinh nghiệm thực tế trong vận hành hạ tầng cloud và on-premises, nền tảng Kubernetes, quy trình CI/CD và hệ thống production.
           </p>
         </div>
 
@@ -85,10 +77,10 @@ const Experience = () => {
                         <Building className="w-4 h-4 mr-2" />
                         <span className="font-medium">{exp.company}</span>
                       </div>
-                      <div className="flex items-center text-gray-600 dark:text-gray-400 text-sm mb-1">
+                      {exp.location && <div className="flex items-center text-gray-600 dark:text-gray-400 text-sm mb-1">
                         <MapPin className="w-4 h-4 mr-2" />
                         <span>{exp.location}</span>
-                      </div>
+                      </div>}
                     </div>
                     <div className="text-right">
                       <div className="flex items-center text-gray-600 dark:text-gray-400 text-sm mb-1">
