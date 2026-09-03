@@ -13,7 +13,7 @@ function ProjectDetailPage() {
 
   if (!project) {
     return (
-      <div className="min-h-screen bg-gray-50 dark:bg-gray-900 py-20">
+      <div className="min-h-screen bg-gray-50 dark:bg-gray-900 pt-[88px] pb-20">
         <div className="max-w-4xl mx-auto px-4 text-center">
           <h1 className="text-4xl font-bold text-gray-900 dark:text-white mb-4">
             Project Not Found
@@ -29,7 +29,7 @@ function ProjectDetailPage() {
   const Icon = Icons[project.icon] || Icons.Box
 
   return (
-    <div className="min-h-screen bg-gray-50 dark:bg-gray-900 py-20">
+    <div className="min-h-screen bg-gray-50 dark:bg-gray-900 pt-[88px] pb-20">
       <div className="max-w-6xl mx-auto px-4">
         {/* Back Button */}
         <button
@@ -57,24 +57,20 @@ function ProjectDetailPage() {
             
             {/* Links */}
             <div className="flex flex-wrap gap-4">
-              <a
-                href={project.github}
-                target="_blank"
-                rel="noopener noreferrer"
+              <button
+                type="button"
                 className="inline-flex items-center px-6 py-3 bg-white text-gray-900 rounded-lg hover:bg-gray-100 transition-colors font-semibold"
               >
                 <Github className="w-5 h-5 mr-2" />
                 View Code
-              </a>
-              <a
-                href={project.demo}
-                target="_blank"
-                rel="noopener noreferrer"
+              </button>
+              <button
+                type="button"
                 className="inline-flex items-center px-6 py-3 bg-white/20 backdrop-blur-sm text-white rounded-lg hover:bg-white/30 transition-colors font-semibold"
               >
                 <ExternalLink className="w-5 h-5 mr-2" />
                 Live Demo
-              </a>
+              </button>
             </div>
           </div>
 

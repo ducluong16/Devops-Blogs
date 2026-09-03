@@ -90,9 +90,9 @@ const Certifications = () => {
   ]
 
   return (
-    <section id="certifications" className="py-20 px-4 bg-gray-50 dark:bg-gray-800">
+    <section id="certifications" className="pt-[88px] pb-20 px-4 bg-gray-50 dark:bg-gray-800 min-h-screen">
       <div className="max-w-7xl mx-auto">
-        <div className="text-center mb-16">
+        <div className="text-center mb-10">
           <h2 className="text-4xl font-bold mb-4 bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">
             Professional Certifications
           </h2>

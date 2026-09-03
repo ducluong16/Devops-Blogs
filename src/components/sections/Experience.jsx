@@ -44,11 +44,11 @@ const Experience = () => {
   ]
 
   return (
-    <section id="experience" className="py-20 bg-gray-50 dark:bg-gray-800">
+    <section id="experience" className="pt-[88px] pb-20 bg-gray-50 dark:bg-gray-800 min-h-screen">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="text-center mb-16">
+        <div className="text-center mb-10">
           <h2 className="text-4xl font-bold mb-4 bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">
-            Professional Experience
+            Experience
           </h2>
           <p className="text-base text-gray-600 dark:text-gray-400 max-w-2xl mx-auto">
             Kinh nghiệm thực tế trong vận hành hạ tầng cloud và on-premises, nền tảng Kubernetes, quy trình CI/CD và hệ thống production.

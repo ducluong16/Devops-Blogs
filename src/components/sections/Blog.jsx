@@ -1,14 +1,15 @@
-import React, { useMemo, useState } from 'react'
-import { Link } from 'react-router-dom'
+import React, { useEffect, useMemo, useState } from 'react'
+import { Link, useSearchParams } from 'react-router-dom'
 import { Calendar, Clock, ArrowRight, Search, X, SlidersHorizontal, Tag } from 'lucide-react'
-import { blogPosts } from '../data/blogData'
+import { blogPosts } from '../../data/blogData'
 
 const normalize = value => value.toLocaleLowerCase('vi').normalize('NFD').replace(/[\u0300-\u036f]/g, '')
 const shortCategory = value => ({ Kubernetes: 'K8S', 'CI/CD': 'CICD', IaC: 'IAC' }[value] || value.slice(0, 4).toUpperCase())
 
 const Blog = () => {
+  const [searchParams] = useSearchParams()
   const [query, setQuery] = useState('')
-  const [activeTag, setActiveTag] = useState('')
+  const [activeTag, setActiveTag] = useState(() => searchParams.get('tag') || '')
   const [sort, setSort] = useState('newest')
   const tags = useMemo(() => [...new Set(blogPosts.flatMap(post => post.tags))], [])
   const filteredPosts = useMemo(() => {
@@ -19,6 +20,10 @@ const Blog = () => {
   }, [query, activeTag, sort])
   const hasFilters = query || activeTag || sort !== 'newest'
   const reset = () => { setQuery(''); setActiveTag(''); setSort('newest') }
+
+  useEffect(() => {
+    setActiveTag(searchParams.get('tag') || '')
+  }, [searchParams])
 
   return <section id="blog" className="blog-section">
     <div className="blog-shell">

@@ -1,5 +1,5 @@
 import React from 'react'
-import Experience from '../components/Experience'
+import Experience from '../components/sections/Experience'
 
 function ExperiencePage() {
   return (

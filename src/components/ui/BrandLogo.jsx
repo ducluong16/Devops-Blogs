@@ -1,13 +1,15 @@
 import React from 'react'
 import {
   siAnsible, siDocker, siElasticsearch, siGithubactions, siGnubash,
-  siGooglecloud, siGrafana, siHelm, siJavascript, siJenkins, siKubernetes,
-  siPrometheus, siPython, siTerraform, siYaml,
+  siArgo, siGitlab, siGooglecloud, siGrafana, siHelm, siJavascript, siJenkins,
+  siKubernetes, siMysql, siPostgresql, siPrometheus, siPython, siTerraform, siYaml,
 } from 'simple-icons'
 
 const icons = {
-  GCP: siGooglecloud, Docker: siDocker, Kubernetes: siKubernetes, Helm: siHelm,
+  GCP: siGooglecloud, Docker: siDocker, K8s: siKubernetes, Kubernetes: siKubernetes, Helm: siHelm,
   Jenkins: siJenkins, Actions: siGithubactions, Terraform: siTerraform,
+  GitLab: siGitlab, ArgoCD: siArgo,
+  MySQL: siMysql, PostgreSQL: siPostgresql,
   Ansible: siAnsible, Prometheus: siPrometheus, Grafana: siGrafana,
   ELK: siElasticsearch, Python: siPython, Bash: siGnubash, YAML: siYaml,
   JS: siJavascript,
