@@ -1,11 +1,10 @@
-import React, { useState, useEffect } from 'react'
-import { Cloud, Container, GitBranch, Monitor, Code, Star, TrendingUp, Award, Sparkles } from 'lucide-react'
-import BrandLogo from './BrandLogo'
+import React, { useState } from 'react'
+import { Cloud, Container, Database, GitBranch, Monitor, Code, Sparkles } from 'lucide-react'
+import BrandLogo from '../ui/BrandLogo'
 
 const Skills = () => {
   const [activeTab, setActiveTab] = useState('All Skills')
   const [hoveredSkill, setHoveredSkill] = useState(null)
-  const [animatedValues, setAnimatedValues] = useState({})
 
   const skillCategories = [
     { name: 'All Skills', icon: Sparkles, color: 'from-purple-500 to-pink-500' },
@@ -13,6 +12,7 @@ const Skills = () => {
     { name: 'Containers & Orchestration', icon: Container, color: 'from-indigo-500 to-purple-500' },
     { name: 'CI/CD & Automation', icon: GitBranch, color: 'from-green-500 to-emerald-500' },
     { name: 'Monitoring & Logging', icon: Monitor, color: 'from-orange-500 to-red-500' },
+    { name: 'Databases', icon: Database, color: 'from-cyan-500 to-blue-600' },
     { name: 'Languages & Scripts', icon: Code, color: 'from-pink-500 to-rose-500' }
   ]
 
@@ -38,7 +38,7 @@ const Skills = () => {
       bgColor: 'bg-blue-50 dark:bg-blue-900/20',
       borderColor: 'border-blue-200 dark:border-blue-800',
       textColor: 'text-blue-600 dark:text-blue-400',
-      expertise: 'Advanced',
+      expertise: 'Expert',
       level: 85,
       icon: '🌐',
       projects: 15
@@ -122,6 +122,32 @@ const Skills = () => {
       projects: 18
     },
     {
+      name: 'GitLab CI',
+      shortName: 'GitLab',
+      category: 'CI/CD & Automation',
+      color: 'from-orange-500 to-red-600',
+      bgColor: 'bg-orange-50 dark:bg-orange-900/20',
+      borderColor: 'border-orange-200 dark:border-orange-800',
+      textColor: 'text-orange-600 dark:text-orange-400',
+      expertise: 'Expert',
+      level: 90,
+      icon: '🦊',
+      projects: 0
+    },
+    {
+      name: 'Argo CD',
+      shortName: 'ArgoCD',
+      category: 'CI/CD & Automation',
+      color: 'from-orange-400 to-rose-500',
+      bgColor: 'bg-rose-50 dark:bg-rose-900/20',
+      borderColor: 'border-rose-200 dark:border-rose-800',
+      textColor: 'text-rose-600 dark:text-rose-400',
+      expertise: 'Expert',
+      level: 88,
+      icon: '🚀',
+      projects: 0
+    },
+    {
       name: 'Terraform',
       shortName: 'Terraform',
       category: 'CI/CD & Automation',
@@ -181,7 +207,7 @@ const Skills = () => {
       bgColor: 'bg-yellow-50 dark:bg-yellow-900/20',
       borderColor: 'border-yellow-200 dark:border-yellow-800',
       textColor: 'text-yellow-600 dark:text-yellow-500',
-      expertise: 'Intermediate',
+      expertise: 'Expert',
       level: 75,
       icon: '📈',
       projects: 10
@@ -200,6 +226,32 @@ const Skills = () => {
       projects: 24
     },
     {
+      name: 'MySQL',
+      shortName: 'MySQL',
+      category: 'Databases',
+      color: 'from-cyan-500 to-blue-600',
+      bgColor: 'bg-cyan-50 dark:bg-cyan-900/20',
+      borderColor: 'border-cyan-200 dark:border-cyan-800',
+      textColor: 'text-cyan-700 dark:text-cyan-400',
+      expertise: 'Advanced',
+      level: 80,
+      icon: '🗃️',
+      projects: 0
+    },
+    {
+      name: 'PostgreSQL',
+      shortName: 'PostgreSQL',
+      category: 'Databases',
+      color: 'from-blue-500 to-indigo-600',
+      bgColor: 'bg-blue-50 dark:bg-blue-900/20',
+      borderColor: 'border-blue-200 dark:border-blue-800',
+      textColor: 'text-blue-700 dark:text-blue-400',
+      expertise: 'Advanced',
+      level: 80,
+      icon: '🐘',
+      projects: 0
+    },
+    {
       name: 'Bash/Shell',
       shortName: 'Bash',
       category: 'Languages & Scripts',
@@ -211,19 +263,6 @@ const Skills = () => {
       level: 93,
       icon: '💻',
       projects: 35
-    },
-    {
-      name: 'YAML',
-      shortName: 'YAML',
-      category: 'Languages & Scripts',
-      color: 'from-red-400 to-pink-500',
-      bgColor: 'bg-red-50 dark:bg-red-900/20',
-      borderColor: 'border-red-200 dark:border-red-800',
-      textColor: 'text-red-600 dark:text-red-400',
-      expertise: 'Expert',
-      level: 95,
-      icon: '📄',
-      projects: 40
     },
     {
       name: 'JavaScript',
@@ -244,36 +283,27 @@ const Skills = () => {
     ? skills
     : skills.filter(skill => skill.category === activeTab)
 
-  useEffect(() => {
-    filteredSkills.forEach((skill, index) => {
-      setTimeout(() => {
-        setAnimatedValues(prev => ({
-          ...prev,
-          [skill.name]: skill.level
-        }))
-      }, index * 100)
-    })
-  }, [activeTab])
+  const experienceStages = ['Exploring', 'Practicing', 'Hands-on']
 
-  const getExpertiseStars = (expertise) => {
-    const levels = {
-      'Expert': 5,
-      'Advanced': 4,
-      'Intermediate': 3
+  const getExperienceStage = (expertise) => {
+    const stages = {
+      Expert: 'Hands-on',
+      Advanced: 'Practicing',
+      Intermediate: 'Exploring'
     }
-    return levels[expertise] || 3
+    return stages[expertise] || 'Exploring'
   }
 
   return (
-    <section id="skills" className="py-20 px-4 bg-gradient-to-br from-gray-50 via-blue-50 to-indigo-50 dark:from-gray-900 dark:via-gray-800 dark:to-gray-900 relative overflow-hidden">
+    <section id="skills" className="pt-[88px] pb-20 px-4 bg-gradient-to-br from-gray-50 via-blue-50 to-indigo-50 dark:from-gray-900 dark:via-gray-800 dark:to-gray-900 relative overflow-hidden min-h-screen">
       <div className="absolute inset-0 bg-grid-pattern opacity-5"></div>
       <div className="absolute top-20 right-10 w-96 h-96 bg-blue-500/10 dark:bg-blue-500/5 rounded-full blur-3xl animate-pulse"></div>
       <div className="absolute bottom-20 left-10 w-96 h-96 bg-purple-500/10 dark:bg-purple-500/5 rounded-full blur-3xl animate-pulse" style={{animationDelay: '1s'}}></div>
 
       <div className="max-w-7xl mx-auto relative z-10">
-        <div className="text-center mb-16">
+        <div className="text-center mb-10">
           <h2 className="text-4xl font-bold mb-4 bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">
-            Skills & Expertise
+            Skills
           </h2>
           <p className="text-base text-gray-600 dark:text-gray-400 max-w-2xl mx-auto">
             Bộ công cụ và nền tảng được tích lũy qua kinh nghiệm thực tế trong vận hành hệ thống và triển khai DevOps.
@@ -335,72 +365,45 @@ const Skills = () => {
               </h3>
 
               <div className="mb-4">
-                <div className="flex justify-between items-center mb-2">
-                  <span className="text-xs font-medium text-gray-500 dark:text-gray-400">Proficiency</span>
-                  <span className={`text-xs font-bold ${skill.textColor}`}>
-                    {animatedValues[skill.name] || 0}%
-                  </span>
+                <div className="mb-2 text-xs font-medium text-gray-500 dark:text-gray-400">
+                  Experience path
                 </div>
-                <div className="h-2 bg-gray-200 dark:bg-gray-700 rounded-full overflow-hidden">
-                  <div
-                    className={`h-full bg-gradient-to-r ${skill.color} rounded-full transition-all duration-1000 ease-out`}
-                    style={{ width: `${animatedValues[skill.name] || 0}%` }}
-                  ></div>
+                <div className="grid grid-cols-3 gap-1.5">
+                  {experienceStages.map((stage, stageIndex) => {
+                    const currentIndex = experienceStages.indexOf(getExperienceStage(skill.expertise))
+                    return (
+                      <div key={stage} className="min-w-0">
+                        <div className={`mb-1.5 h-2 rounded-full ${stageIndex <= currentIndex ? `bg-gradient-to-r ${skill.color}` : 'bg-gray-200 dark:bg-gray-700'}`}></div>
+                        <span className={`block truncate text-[9px] font-medium ${stageIndex === currentIndex ? skill.textColor : 'text-gray-400 dark:text-gray-500'}`}>
+                          {stage}
+                        </span>
+                      </div>
+                    )
+                  })}
                 </div>
               </div>
 
-              <div className="flex items-center justify-between mb-3">
+              <div>
                 <span className={`text-xs font-semibold px-3 py-1 rounded-full ${skill.bgColor} ${skill.textColor} border ${skill.borderColor}`}>
-                  {skill.expertise}
+                  {getExperienceStage(skill.expertise)}
                 </span>
-                <div className="flex items-center gap-0.5">
-                  {[...Array(5)].map((_, i) => (
-                    <Star
-                      key={i}
-                      className={`w-3.5 h-3.5 transition-all duration-300 ${
-                        i < getExpertiseStars(skill.expertise)
-                          ? 'text-yellow-400 fill-yellow-400 scale-110'
-                          : 'text-gray-300 dark:text-gray-600'
-                      }`}
-                    />
-                  ))}
-                </div>
-              </div>
-
-              <div className="flex items-center gap-2 text-sm text-gray-600 dark:text-gray-400 pt-3 border-t border-gray-200 dark:border-gray-700">
-                <Award className="w-4 h-4" />
-                <span className="font-medium">{skill.projects} projects</span>
               </div>
 
               {hoveredSkill === skill.name && (
                 <div className="absolute inset-0 bg-gradient-to-br from-white/95 to-gray-50/95 dark:from-gray-800/95 dark:to-gray-900/95 backdrop-blur-sm rounded-2xl p-6 flex flex-col justify-center items-center text-center animate-fadeIn">
-                  <TrendingUp className={`w-12 h-12 ${skill.textColor} mb-3`} />
-                  <p className="text-sm text-gray-700 dark:text-gray-300 font-medium">
-                    Used in <span className="font-bold text-lg">{skill.projects}</span> production projects
+                  <Sparkles className={`w-12 h-12 ${skill.textColor} mb-3`} />
+                  <p className="text-sm text-gray-700 dark:text-gray-300 font-semibold">
+                    {getExperienceStage(skill.expertise)} experience
                   </p>
-                  <div className="mt-3 text-xs text-gray-500 dark:text-gray-400">
-                    Click to view projects
-                  </div>
+                  <p className="mt-2 text-xs leading-5 text-gray-500 dark:text-gray-400">
+                    Continuously learning through labs and practical work.
+                  </p>
                 </div>
               )}
             </div>
           ))}
         </div>
 
-        <div className="mt-16 grid md:grid-cols-3 gap-6">
-          <div className="bg-gradient-to-br from-blue-500 to-purple-600 rounded-2xl p-8 text-white text-center shadow-2xl transform hover:scale-105 transition-all duration-300">
-            <div className="text-5xl font-bold mb-2">{skills.length}+</div>
-            <div className="text-lg opacity-90">Technologies Mastered</div>
-          </div>
-          <div className="bg-gradient-to-br from-green-500 to-emerald-600 rounded-2xl p-8 text-white text-center shadow-2xl transform hover:scale-105 transition-all duration-300">
-            <div className="text-5xl font-bold mb-2">5+</div>
-            <div className="text-lg opacity-90">Years Experience</div>
-          </div>
-          <div className="bg-gradient-to-br from-orange-500 to-red-600 rounded-2xl p-8 text-white text-center shadow-2xl transform hover:scale-105 transition-all duration-300">
-            <div className="text-5xl font-bold mb-2">6</div>
-            <div className="text-lg opacity-90">Professional Certifications</div>
-          </div>
-        </div>
       </div>
 
       <style jsx>{`

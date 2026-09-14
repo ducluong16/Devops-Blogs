@@ -105,7 +105,7 @@ const About = () => {
   ]
 
   return (
-    <section id="about" className="py-20 px-4 bg-gradient-to-br from-gray-50 via-blue-50 to-purple-50 dark:from-gray-900 dark:via-gray-800 dark:to-gray-900 relative overflow-hidden">
+    <section id="about" className="pt-[88px] pb-20 px-4 bg-gradient-to-br from-gray-50 via-blue-50 to-purple-50 dark:from-gray-900 dark:via-gray-800 dark:to-gray-900 relative overflow-hidden min-h-screen">
       {/* Animated Background */}
       <div className="absolute inset-0 bg-grid-pattern opacity-5"></div>
       <div className="absolute top-20 right-10 w-96 h-96 bg-blue-500/10 dark:bg-blue-500/5 rounded-full blur-3xl animate-pulse"></div>
@@ -113,7 +113,7 @@ const About = () => {
 
       <div className="max-w-7xl mx-auto relative z-10">
         {/* Header */}
-        <div className="text-center mb-16">
+        <div className="text-center mb-10">
           <div className="inline-flex items-center gap-2 px-4 py-2 bg-blue-100 dark:bg-blue-900/30 border border-blue-200 dark:border-blue-800 rounded-full text-blue-600 dark:text-blue-400 text-sm font-medium mb-6">
             <Coffee className="w-4 h-4" />
             Get to know me

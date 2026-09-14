@@ -50,9 +50,9 @@ const Contact = () => {
   ]
 
   return (
-    <section id="contact" className="py-20 bg-white dark:bg-gray-900">
+    <section id="contact" className="pt-[88px] pb-20 bg-white dark:bg-gray-900 min-h-screen">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="text-center mb-16">
+        <div className="text-center mb-10">
           <h2 className="text-4xl font-bold text-gray-900 dark:text-white mb-4">
             Get In Touch
           </h2>
@@ -203,12 +203,6 @@ const Contact = () => {
           </div>
         </div>
 
-        {/* Footer */}
-        <div className="mt-20 pt-8 border-t border-gray-200 dark:border-gray-700 text-center">
-          <p className="text-gray-600 dark:text-gray-400">
-            © 2024 Alex Morgan. Built with React, Tailwind CSS, and ❤️
-          </p>
-        </div>
       </div>
     </section>
   )
