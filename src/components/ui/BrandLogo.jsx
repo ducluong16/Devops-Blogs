@@ -3,6 +3,7 @@ import {
   siAnsible, siDocker, siElasticsearch, siGithubactions, siGnubash,
   siArgo, siGitlab, siGooglecloud, siGrafana, siHelm, siJavascript, siJenkins,
   siKubernetes, siMysql, siPostgresql, siPrometheus, siPython, siTerraform, siYaml,
+  siLinux, siVault, siKeycloak, siOpenstack, siNginx, siRedis, siGit
 } from 'simple-icons'
 
 const icons = {
@@ -13,6 +14,8 @@ const icons = {
   Ansible: siAnsible, Prometheus: siPrometheus, Grafana: siGrafana,
   ELK: siElasticsearch, Python: siPython, Bash: siGnubash, YAML: siYaml,
   JS: siJavascript,
+  Linux: siLinux, Vault: siVault, Keycloak: siKeycloak, OpenStack: siOpenstack,
+  Nginx: siNginx, Redis: siRedis, Git: siGit
 }
 
 export default function BrandLogo({ name, size = 38 }) {

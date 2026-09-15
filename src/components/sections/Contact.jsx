@@ -50,15 +50,15 @@ const Contact = () => {
   ]
 
   return (
-    <section id="contact" className="pt-[88px] pb-20 bg-white dark:bg-gray-900 min-h-screen">
+    <section id="contact" className="section-top-pad pb-20 bg-white dark:bg-gray-900 min-h-screen">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-10">
-          <h2 className="text-4xl font-bold text-gray-900 dark:text-white mb-4">
+          <h2 className="text-3xl sm:text-4xl font-bold text-gray-900 dark:text-white mb-4">
             Get In Touch
           </h2>
           <div className="w-20 h-1 bg-gradient-to-r from-blue-600 to-purple-600 mx-auto mb-6"></div>
-          <p className="text-lg text-gray-600 dark:text-gray-300 max-w-3xl mx-auto">
-            Ready to collaborate on your next project? Let's discuss how I can help optimize 
+          <p className="text-base sm:text-lg text-gray-600 dark:text-gray-300 max-w-3xl mx-auto">
+            Ready to collaborate on your next project? Let's discuss how I can help optimize
             your infrastructure and accelerate your development workflow.
           </p>
         </div>
@@ -67,11 +67,11 @@ const Contact = () => {
           {/* Contact Information */}
           <div className="space-y-8">
             <div>
-              <h3 className="text-2xl font-bold text-gray-900 dark:text-white mb-6">
+              <h3 className="text-xl sm:text-2xl font-bold text-gray-900 dark:text-white mb-6">
                 Let's Connect
               </h3>
               <p className="text-gray-600 dark:text-gray-300 mb-8 leading-relaxed">
-                I'm always open to discussing new opportunities, interesting projects, 
+                I'm always open to discussing new opportunities, interesting projects,
                 or just having a chat about the latest in DevOps and cloud technologies.
               </p>
             </div>
@@ -125,7 +125,7 @@ const Contact = () => {
           </div>
 
           {/* Contact Form */}
-          <div className="bg-gray-50 dark:bg-gray-800 rounded-2xl p-8">
+          <div className="bg-gray-50 dark:bg-gray-800 rounded-2xl p-5 sm:p-8">
             <form onSubmit={handleSubmit} className="space-y-6">
               <div className="grid md:grid-cols-2 gap-6">
                 <div>

@@ -8,14 +8,14 @@ const Navbar = ({ darkMode, toggleDarkMode }) => {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
   
   const navItems = [
-    { name: 'Home', path: '/' },
+    { name: 'Trang chủ', path: '/' },
     { name: 'Blog', path: '/blog' },
-    { name: 'About', path: '/about', visible: pageVisibility.about },
-    { name: 'Skills', path: '/skills' },
-    { name: 'Experience', path: '/experience' },
-    { name: 'Certifications', path: '/certifications', visible: pageVisibility.certifications },
-    { name: 'Projects', path: '/projects' },
-    { name: 'Contact', path: '/contact', visible: pageVisibility.contact }
+    { name: 'Giới thiệu', path: '/about', visible: pageVisibility.about },
+    { name: 'Kỹ năng', path: '/skills' },
+    { name: 'Kinh nghiệm', path: '/experience' },
+    { name: 'Chứng chỉ', path: '/certifications', visible: pageVisibility.certifications },
+    { name: 'Dự án', path: '/projects' },
+    { name: 'Liên hệ', path: '/contact', visible: pageVisibility.contact }
   ].filter((item) => item.visible !== false)
 
   useEffect(() => {
@@ -27,9 +27,9 @@ const Navbar = ({ darkMode, toggleDarkMode }) => {
     : location.pathname === path || location.pathname.startsWith(`${path}/`)
 
   return (
-    <nav className="fixed top-0 left-0 right-0 z-50 px-4">
+    <nav className="fixed top-0 left-0 right-0 z-50 px-4" style={{ paddingTop: 'env(safe-area-inset-top)' }}>
       <div className="max-w-7xl mx-auto">
-        <div className="relative flex justify-between items-center h-16 px-3 sm:px-5 rounded-2xl bg-white/90 dark:bg-gray-950/90 backdrop-blur-xl border border-gray-200/80 dark:border-gray-700/70 shadow-lg shadow-gray-900/5 dark:shadow-black/20">
+        <div className="relative flex justify-between items-center h-14 sm:h-16 px-3 sm:px-5 rounded-2xl bg-white/90 dark:bg-gray-950/90 backdrop-blur-xl border border-gray-200/80 dark:border-gray-700/70 shadow-lg shadow-gray-900/5 dark:shadow-black/20">
           {/* Logo/Avatar */}
           <Link to="/" className="group flex items-center gap-2.5 shrink-0">
             <div className="relative w-9 h-9 bg-gradient-to-br from-blue-500 via-indigo-500 to-purple-600 rounded-xl flex items-center justify-center shadow-md shadow-blue-500/20 group-hover:rotate-3 group-hover:scale-105 transition-transform">
@@ -78,7 +78,7 @@ const Navbar = ({ darkMode, toggleDarkMode }) => {
                 <span className="absolute inline-flex w-full h-full rounded-full bg-emerald-400 opacity-75 animate-ping"></span>
                 <span className="relative inline-flex w-2 h-2 rounded-full bg-emerald-500"></span>
               </span>
-              <span className="text-xs font-semibold text-emerald-700 dark:text-emerald-400">Available</span>
+              <span className="text-xs font-semibold text-emerald-700 dark:text-emerald-400">Sẵn sàng</span>
             </div>
 
             <button
@@ -93,13 +93,13 @@ const Navbar = ({ darkMode, toggleDarkMode }) => {
           </div>
 
           {mobileMenuOpen && (
-            <div className="lg:hidden absolute top-[72px] left-0 right-0 p-2 rounded-2xl bg-white/95 dark:bg-gray-950/95 backdrop-blur-xl border border-gray-200 dark:border-gray-700 shadow-2xl">
-              <div className="grid sm:grid-cols-2 gap-1">
+            <div className="lg:hidden absolute top-[64px] sm:top-[72px] left-0 right-0 p-2 rounded-2xl bg-white/95 dark:bg-gray-950/95 backdrop-blur-xl border border-gray-200 dark:border-gray-700 shadow-2xl max-h-[calc(100dvh-150px)] overflow-y-auto overscroll-contain">
+              <div className="grid grid-cols-2 gap-1">
                 {navItems.map((item) => (
                   <Link
                     key={item.path}
                     to={item.path}
-                    className={`px-4 py-3 rounded-xl text-sm font-semibold transition-colors ${
+                    className={`px-3 py-2.5 sm:px-4 sm:py-3 rounded-xl text-sm font-semibold transition-colors ${
                       isActive(item.path)
                         ? 'bg-gradient-to-r from-blue-600 to-indigo-600 text-white shadow-md shadow-blue-500/20'
                         : 'text-gray-600 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-800'

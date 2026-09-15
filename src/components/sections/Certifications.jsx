@@ -90,18 +90,18 @@ const Certifications = () => {
   ]
 
   return (
-    <section id="certifications" className="pt-[88px] pb-20 px-4 bg-gray-50 dark:bg-gray-800 min-h-screen">
+    <section id="certifications" className="section-top-pad pb-20 px-4 bg-gray-50 dark:bg-gray-800 min-h-screen">
       <div className="max-w-7xl mx-auto">
         <div className="text-center mb-10">
-          <h2 className="text-4xl font-bold mb-4 bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">
+          <h2 className="text-3xl sm:text-4xl font-bold mb-4 bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">
             Professional Certifications
           </h2>
-          <p className="text-gray-600 dark:text-gray-400 max-w-2xl mx-auto">
+          <p className="text-sm sm:text-base text-gray-600 dark:text-gray-400 max-w-2xl mx-auto">
             Các chứng chỉ chuyên nghiệp trong lĩnh vực DevOps, Cloud và Infrastructure
           </p>
         </div>
 
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6">
           {certifications.map((cert, index) => (
             <div
               key={index}
@@ -167,22 +167,22 @@ const Certifications = () => {
         </div>
 
         {/* Stats Summary */}
-        <div className="mt-16 grid grid-cols-2 md:grid-cols-4 gap-6">
-          <div className="text-center p-6 bg-white dark:bg-gray-900 rounded-xl border border-gray-200 dark:border-gray-700">
-            <p className="text-3xl font-bold text-blue-600 dark:text-blue-400 mb-2">{certifications.length}</p>
-            <p className="text-sm text-gray-600 dark:text-gray-400">Certifications</p>
+        <div className="mt-12 sm:mt-16 grid grid-cols-2 md:grid-cols-4 gap-3 sm:gap-6">
+          <div className="text-center p-4 sm:p-6 bg-white dark:bg-gray-900 rounded-xl border border-gray-200 dark:border-gray-700">
+            <p className="text-2xl sm:text-3xl font-bold text-blue-600 dark:text-blue-400 mb-2">{certifications.length}</p>
+            <p className="text-xs sm:text-sm text-gray-600 dark:text-gray-400">Certifications</p>
           </div>
-          <div className="text-center p-6 bg-white dark:bg-gray-900 rounded-xl border border-gray-200 dark:border-gray-700">
-            <p className="text-3xl font-bold text-purple-600 dark:text-purple-400 mb-2">5+</p>
-            <p className="text-sm text-gray-600 dark:text-gray-400">Providers</p>
+          <div className="text-center p-4 sm:p-6 bg-white dark:bg-gray-900 rounded-xl border border-gray-200 dark:border-gray-700">
+            <p className="text-2xl sm:text-3xl font-bold text-purple-600 dark:text-purple-400 mb-2">5+</p>
+            <p className="text-xs sm:text-sm text-gray-600 dark:text-gray-400">Providers</p>
           </div>
-          <div className="text-center p-6 bg-white dark:bg-gray-900 rounded-xl border border-gray-200 dark:border-gray-700">
-            <p className="text-3xl font-bold text-green-600 dark:text-green-400 mb-2">100%</p>
-            <p className="text-sm text-gray-600 dark:text-gray-400">Active Status</p>
+          <div className="text-center p-4 sm:p-6 bg-white dark:bg-gray-900 rounded-xl border border-gray-200 dark:border-gray-700">
+            <p className="text-2xl sm:text-3xl font-bold text-green-600 dark:text-green-400 mb-2">100%</p>
+            <p className="text-xs sm:text-sm text-gray-600 dark:text-gray-400">Active Status</p>
           </div>
-          <div className="text-center p-6 bg-white dark:bg-gray-900 rounded-xl border border-gray-200 dark:border-gray-700">
-            <p className="text-3xl font-bold text-orange-600 dark:text-orange-400 mb-2">2024</p>
-            <p className="text-sm text-gray-600 dark:text-gray-400">Latest Year</p>
+          <div className="text-center p-4 sm:p-6 bg-white dark:bg-gray-900 rounded-xl border border-gray-200 dark:border-gray-700">
+            <p className="text-2xl sm:text-3xl font-bold text-orange-600 dark:text-orange-400 mb-2">2024</p>
+            <p className="text-xs sm:text-sm text-gray-600 dark:text-gray-400">Latest Year</p>
           </div>
         </div>
       </div>
