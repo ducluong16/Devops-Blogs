@@ -16,9 +16,9 @@ const skillCategories = [
   { name: 'Tất cả kỹ năng', icon: Sparkles, color: 'from-blue-600 to-indigo-600' },
   { name: 'Containers & K8s', icon: Container, color: 'from-blue-500 to-cyan-500' },
   { name: 'CI/CD & GitOps', icon: GitBranch, color: 'from-emerald-500 to-teal-500' },
-  { name: 'Cloud & Hạ tầng', icon: Cloud, color: 'from-cyan-500 to-blue-600' },
-  { name: 'Bảo mật & Identity', icon: ShieldCheck, color: 'from-amber-500 to-rose-500' },
-  { name: 'Monitoring & Quan sát', icon: Activity, color: 'from-purple-500 to-pink-500' },
+  { name: 'Cloud & Infrastructure', icon: Cloud, color: 'from-cyan-500 to-blue-600' },
+  { name: 'Security & Identity', icon: ShieldCheck, color: 'from-amber-500 to-rose-500' },
+  { name: 'Monitoring & Observability', icon: Activity, color: 'from-purple-500 to-pink-500' },
   { name: 'Database & Scripting', icon: Database, color: 'from-indigo-500 to-purple-600' }
 ]
 
@@ -161,7 +161,7 @@ const skillsData = [
   {
     name: 'Linux (Ubuntu / CentOS / Debian)',
     shortName: 'Linux',
-    category: 'Cloud & Hạ tầng',
+    category: 'Cloud & Infrastructure',
     level: 94,
     stage: 'Production Ready',
     stageType: 'production',
@@ -174,7 +174,7 @@ const skillsData = [
   {
     name: 'Google Cloud Platform (GCP)',
     shortName: 'GCP',
-    category: 'Cloud & Hạ tầng',
+    category: 'Cloud & Infrastructure',
     level: 86,
     stage: 'Hands-on',
     stageType: 'handson',
@@ -187,7 +187,7 @@ const skillsData = [
   {
     name: 'OpenStack',
     shortName: 'OpenStack',
-    category: 'Cloud & Hạ tầng',
+    category: 'Cloud & Infrastructure',
     level: 84,
     stage: 'Hands-on',
     stageType: 'handson',
@@ -200,7 +200,7 @@ const skillsData = [
   {
     name: 'Amazon Web Services (AWS)',
     shortName: 'AWS',
-    category: 'Cloud & Hạ tầng',
+    category: 'Cloud & Infrastructure',
     level: 82,
     stage: 'Hands-on',
     stageType: 'handson',
@@ -213,7 +213,7 @@ const skillsData = [
   {
     name: 'Nginx',
     shortName: 'Nginx',
-    category: 'Cloud & Hạ tầng',
+    category: 'Cloud & Infrastructure',
     level: 88,
     stage: 'Production Ready',
     stageType: 'production',
@@ -228,7 +228,7 @@ const skillsData = [
   {
     name: 'HashiCorp Vault',
     shortName: 'Vault',
-    category: 'Bảo mật & Identity',
+    category: 'Security & Identity',
     level: 88,
     stage: 'Production Ready',
     stageType: 'production',
@@ -241,7 +241,7 @@ const skillsData = [
   {
     name: 'Keycloak',
     shortName: 'Keycloak',
-    category: 'Bảo mật & Identity',
+    category: 'Security & Identity',
     level: 86,
     stage: 'Hands-on',
     stageType: 'handson',
@@ -256,7 +256,7 @@ const skillsData = [
   {
     name: 'Prometheus',
     shortName: 'Prometheus',
-    category: 'Monitoring & Quan sát',
+    category: 'Monitoring & Observability',
     level: 88,
     stage: 'Production Ready',
     stageType: 'production',
@@ -269,7 +269,7 @@ const skillsData = [
   {
     name: 'Grafana',
     shortName: 'Grafana',
-    category: 'Monitoring & Quan sát',
+    category: 'Monitoring & Observability',
     level: 88,
     stage: 'Production Ready',
     stageType: 'production',
@@ -282,7 +282,7 @@ const skillsData = [
   {
     name: 'ELK Stack',
     shortName: 'ELK',
-    category: 'Monitoring & Quan sát',
+    category: 'Monitoring & Observability',
     level: 85,
     stage: 'Hands-on',
     stageType: 'handson',
@@ -370,12 +370,12 @@ const stageBadgeStyles = {
   handson: {
     bg: 'bg-blue-50 dark:bg-blue-950/40 text-blue-700 dark:text-blue-400 border-blue-200 dark:border-blue-800',
     dot: 'bg-blue-500',
-    label: 'Hands-on Thực tế'
+    label: 'Hands-on'
   },
   practicing: {
     bg: 'bg-amber-50 dark:bg-amber-950/40 text-amber-700 dark:text-amber-400 border-amber-200 dark:border-amber-800',
     dot: 'bg-amber-500',
-    label: 'Đang mở rộng'
+    label: 'Practicing'
   }
 }
 
@@ -408,14 +408,14 @@ export default function Skills() {
             <Sparkles className="w-3.5 h-3.5 text-blue-500" />
             Năng Lực DevOps &amp; Cloud Native
           </div>
-          <h1 className="text-2xl sm:text-4xl lg:text-5xl font-black text-gray-900 dark:text-white tracking-tight">
+          {/* <h1 className="text-2xl sm:text-4xl lg:text-5xl font-black text-gray-900 dark:text-white tracking-tight">
             Kỹ Năng &amp;{' '}
             <span className="bg-gradient-to-r from-blue-600 via-cyan-500 to-indigo-600 dark:from-blue-400 dark:via-cyan-300 dark:to-indigo-400 bg-clip-text text-transparent">
               Bộ Công Cụ Thực Chiến
             </span>
-          </h1>
+          </h1> */}
           <p className="mt-3 sm:mt-4 text-xs sm:text-base text-gray-600 dark:text-gray-400 leading-relaxed max-w-2xl mx-auto">
-            Bộ công cụ và nền tảng tôi trực tiếp làm chủ qua các dự án Kubernetes, CI/CD GitOps và vận hành hạ tầng Cloud.
+            Bộ công cụ và nền tảng mình tiếp thu được trong suốt thời gian đi làm.
           </p>
 
           {/* Quick Stats Strip */}

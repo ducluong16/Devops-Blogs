@@ -49,14 +49,14 @@ export default function Projects() {
             <FolderGit2 className="w-3.5 h-3.5 text-blue-500" />
             Hệ Thống Thực Tế &amp; Case Studies
           </div>
-          <h1 className="text-2xl sm:text-4xl lg:text-5xl font-black text-gray-900 dark:text-white tracking-tight">
+          {/* <h1 className="text-2xl sm:text-4xl lg:text-5xl font-black text-gray-900 dark:text-white tracking-tight">
             Dự Án DevOps &amp;{' '}
             <span className="bg-gradient-to-r from-blue-600 via-cyan-500 to-indigo-600 dark:from-blue-400 dark:via-cyan-300 dark:to-indigo-400 bg-clip-text text-transparent">
               Kiến Trúc Hạ Tầng
             </span>
-          </h1>
+          </h1> */}
           <p className="mt-3 sm:mt-4 text-xs sm:text-base text-gray-600 dark:text-gray-400 leading-relaxed max-w-2xl mx-auto">
-            Các dự án tôi trực tiếp thiết kế và triển khai về tự động hóa CI/CD GitOps, cụm Kubernetes và hạ tầng Multi-Cloud.
+            Các dự án hands-on mô phỏng môi trường Production, tập trung vào xây dựng, triển khai và vận hành hệ thống .
           </p>
         </div>
 

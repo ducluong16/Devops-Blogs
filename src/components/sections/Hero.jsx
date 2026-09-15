@@ -107,7 +107,8 @@ const Hero = () => {
 
             {/* Description */}
             <p className="text-sm sm:text-base text-gray-600 dark:text-gray-300 max-w-xl mx-auto lg:mx-0 mb-5 leading-6 animate-fade-in-up" style={{animationDelay: '0.5s'}}>
-              Tôi là <span className="font-semibold text-gray-900 dark:text-white">Phạm Đức Lương</span>, Junior DevOps Engineer tại Hà Nội theo định hướng thực chiến. Tập trung vào <span className="font-semibold text-blue-600 dark:text-blue-400">Linux, Kubernetes, CI/CD GitOps</span> và hạ tầng Cloud để tự động hóa quy trình vận hành.
+              Mình là <span className="font-semibold text-gray-900 dark:text-white">Lương</span>, kĩ sư Devops đang làm việc tại Hà Nội. Blog này là nơi mình chia sẻ những kiến thức và trải nghiệm thực tế trong ngành IT.
+              Tập trung vào <span className="font-semibold text-blue-600 dark:text-blue-400">Linux, Kubernetes, CI/CD GitOps</span> và hạ tầng Cloud để tự động hóa quy trình vận hành.
             </p>
 
             {/* CTA Buttons */}

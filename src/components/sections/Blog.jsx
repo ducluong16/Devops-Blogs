@@ -81,14 +81,14 @@ const Blog = () => {
             <BookOpen className="w-3.5 h-3.5 text-blue-500" />
             Ghi Chép Kỹ Thuật &amp; Kiến Thức DevOps
           </div>
-          <h1 className="text-3xl sm:text-5xl font-black text-gray-900 dark:text-white tracking-tight">
+          {/* <h1 className="text-3xl sm:text-5xl font-black text-gray-900 dark:text-white tracking-tight">
             Blog &amp;{' '}
             <span className="bg-gradient-to-r from-blue-600 via-cyan-500 to-indigo-600 dark:from-blue-400 dark:via-cyan-300 dark:to-indigo-400 bg-clip-text text-transparent">
               Chia Sẻ Kỹ Thuật
             </span>
-          </h1>
+          </h1> */}
           <p className="mt-4 text-sm sm:text-base text-gray-600 dark:text-gray-400 leading-relaxed">
-            Nơi tôi chia sẻ các bài viết chuyên sâu về Kubernetes, CI/CD tự động hóa, GitOps với Argo CD và Terraform IaC từ kinh nghiệm thực chiến.
+            Nơi những dòng kubectl apply được viết bằng niềm tin, những pipeline chạy bằng hy vọng.
           </p>
 
           {/* Category Tabs */}

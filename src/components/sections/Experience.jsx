@@ -80,14 +80,14 @@ export default function Experience() {
             <Briefcase className="w-3.5 h-3.5 text-blue-500" />
             Hành Trình Kỹ Thuật &amp; Cột Mốc
           </div>
-          <h1 className="text-2xl sm:text-4xl lg:text-5xl font-black text-gray-900 dark:text-white tracking-tight">
+          {/* <h1 className="text-2xl sm:text-4xl lg:text-5xl font-black text-gray-900 dark:text-white tracking-tight">
             Kinh Nghiệm &amp;{' '}
             <span className="bg-gradient-to-r from-blue-600 via-cyan-500 to-indigo-600 dark:from-blue-400 dark:via-cyan-300 dark:to-indigo-400 bg-clip-text text-transparent">
               Hành Trình Thực Chiến
             </span>
-          </h1>
+          </h1> */}
           <p className="mt-3 sm:mt-4 text-xs sm:text-base text-gray-600 dark:text-gray-400 leading-relaxed max-w-2xl mx-auto">
-            Kinh nghiệm thực chiến của tôi trong quản trị hạ tầng Cloud &amp; On-Premises, vận hành cụm Kubernetes đa môi trường và tự động hóa GitOps CI/CD.
+            Những dấu mốc trên hành trình từ xây dựng, triển khai đến vận hành hệ thống thực tế.
           </p>
         </div>
 

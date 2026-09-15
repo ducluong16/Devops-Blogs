@@ -31,20 +31,20 @@ export default function HomeCta() {
             {/* Status Pill */}
             <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-emerald-50 dark:bg-emerald-950/40 border border-emerald-200 dark:border-emerald-800 text-emerald-700 dark:text-emerald-400 text-xs sm:text-sm font-semibold mb-6 shadow-sm">
               <span className="w-2.5 h-2.5 rounded-full bg-emerald-500 animate-pulse"></span>
-              Sẵn sàng cho các cơ hội nghề nghiệp mới &amp; Hợp tác dự án
+              STATUS: OPEN_FOR_OPPORTUNITY
             </div>
 
             {/* Title */}
             <h2 className="text-3xl sm:text-4xl lg:text-5xl font-black text-gray-900 dark:text-white tracking-tight mb-5">
-              Sẵn sàng xây dựng &amp; tự động hóa{' '}
+              Ready to build.{' '}
               <span className="bg-gradient-to-r from-blue-600 via-cyan-500 to-indigo-600 dark:from-blue-400 dark:via-cyan-300 dark:to-indigo-400 bg-clip-text text-transparent">
-                Hạ tầng cùng bạn?
+                Ready for the next challenge.
               </span>
             </h2>
 
             {/* Description */}
             <p className="text-sm sm:text-base text-gray-600 dark:text-gray-300 max-w-2xl mx-auto mb-8 leading-relaxed">
-              Bạn đang tìm kiếm một DevOps Engineer đam mê học hỏi, có kinh nghiệm thực chiến về Linux, Kubernetes, CI/CD GitOps, Terraform và hệ thống quan sát? Hãy kết nối ngay hôm nay để cùng trao đổi!
+              Mở cửa cho cơ hội nghề nghiệp và những dự án mới trong Cloud & DevOps. Có một dự án thú vị? Hãy cùng trao đổi.
             </p>
 
             {/* Action Buttons */}
