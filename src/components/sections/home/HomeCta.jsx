@@ -44,7 +44,7 @@ export default function HomeCta() {
 
             {/* Description */}
             <p className="text-sm sm:text-base text-gray-600 dark:text-gray-300 max-w-2xl mx-auto mb-8 leading-relaxed">
-              Mở cửa cho cơ hội nghề nghiệp và những dự án mới trong Cloud & DevOps. Có một dự án thú vị? Hãy cùng trao đổi.
+              Mở cửa cho cơ hội nghề nghiệp và những dự án mới trong Cloud & DevOps. Hoặc đơn giản chỉ là bạn có một dự án thú vị? Hãy cùng trao đổi.
             </p>
 
             {/* Action Buttons */}
