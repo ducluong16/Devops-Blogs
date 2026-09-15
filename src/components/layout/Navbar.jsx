@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import { Link, useLocation } from 'react-router-dom'
-import { Menu, Moon, Sun, Terminal, X } from 'lucide-react'
+import { Menu, Moon, Sun, Terminal, X, Home, BookOpen, Cpu, Briefcase, FolderGit2, ChevronRight, Award, Mail } from 'lucide-react'
 import { pageVisibility } from '../../config/pageVisibility'
 
 const Navbar = ({ darkMode, toggleDarkMode }) => {
@@ -8,14 +8,14 @@ const Navbar = ({ darkMode, toggleDarkMode }) => {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
   
   const navItems = [
-    { name: 'Trang chủ', path: '/' },
-    { name: 'Blog', path: '/blog' },
-    { name: 'Giới thiệu', path: '/about', visible: pageVisibility.about },
-    { name: 'Kỹ năng', path: '/skills' },
-    { name: 'Kinh nghiệm', path: '/experience' },
-    { name: 'Chứng chỉ', path: '/certifications', visible: pageVisibility.certifications },
-    { name: 'Dự án', path: '/projects' },
-    { name: 'Liên hệ', path: '/contact', visible: pageVisibility.contact }
+    { name: 'Trang chủ', path: '/', icon: Home },
+    { name: 'Blog', path: '/blog', icon: BookOpen },
+    { name: 'Giới thiệu', path: '/about', icon: Terminal, visible: pageVisibility.about },
+    { name: 'Kỹ năng', path: '/skills', icon: Cpu },
+    { name: 'Kinh nghiệm', path: '/experience', icon: Briefcase },
+    { name: 'Chứng chỉ', path: '/certifications', icon: Award, visible: pageVisibility.certifications },
+    { name: 'Dự án', path: '/projects', icon: FolderGit2 },
+    { name: 'Liên hệ', path: '/contact', icon: Mail, visible: pageVisibility.contact }
   ].filter((item) => item.visible !== false)
 
   useEffect(() => {
@@ -27,9 +27,9 @@ const Navbar = ({ darkMode, toggleDarkMode }) => {
     : location.pathname === path || location.pathname.startsWith(`${path}/`)
 
   return (
-    <nav className="fixed top-0 left-0 right-0 z-50 px-4" style={{ paddingTop: 'env(safe-area-inset-top)' }}>
+    <nav className="fixed top-0 left-0 right-0 z-50 px-3 sm:px-4" style={{ paddingTop: 'env(safe-area-inset-top)' }}>
       <div className="max-w-7xl mx-auto">
-        <div className="relative flex justify-between items-center h-14 sm:h-16 px-3 sm:px-5 rounded-2xl bg-white/90 dark:bg-gray-950/90 backdrop-blur-xl border border-gray-200/80 dark:border-gray-700/70 shadow-lg shadow-gray-900/5 dark:shadow-black/20">
+        <div className="relative flex justify-between items-center h-14 sm:h-16 px-3 sm:px-5 rounded-2xl bg-white/95 dark:bg-gray-950/95 backdrop-blur-xl border border-gray-200/80 dark:border-gray-700/70 shadow-lg shadow-gray-900/5 dark:shadow-black/20">
           {/* Logo/Avatar */}
           <Link to="/" className="group flex items-center gap-2.5 shrink-0">
             <div className="relative w-9 h-9 bg-gradient-to-br from-blue-500 via-indigo-500 to-purple-600 rounded-xl flex items-center justify-center shadow-md shadow-blue-500/20 group-hover:rotate-3 group-hover:scale-105 transition-transform">
@@ -42,7 +42,7 @@ const Navbar = ({ darkMode, toggleDarkMode }) => {
             </div>
           </Link>
 
-          {/* Navigation Items */}
+          {/* Navigation Items (Desktop) */}
           <div className="hidden lg:flex absolute left-1/2 -translate-x-1/2 items-center gap-1 p-1.5 rounded-xl bg-gray-100/80 dark:bg-gray-900/90 border border-gray-200/70 dark:border-gray-700/70 shadow-inner">
             {navItems.map((item) => (
               <Link
@@ -92,22 +92,31 @@ const Navbar = ({ darkMode, toggleDarkMode }) => {
             </button>
           </div>
 
+          {/* Mobile Menu Dropdown */}
           {mobileMenuOpen && (
-            <div className="lg:hidden absolute top-[64px] sm:top-[72px] left-0 right-0 p-2 rounded-2xl bg-white/95 dark:bg-gray-950/95 backdrop-blur-xl border border-gray-200 dark:border-gray-700 shadow-2xl max-h-[calc(100dvh-150px)] overflow-y-auto overscroll-contain">
-              <div className="grid grid-cols-2 gap-1">
-                {navItems.map((item) => (
-                  <Link
-                    key={item.path}
-                    to={item.path}
-                    className={`px-3 py-2.5 sm:px-4 sm:py-3 rounded-xl text-sm font-semibold transition-colors ${
-                      isActive(item.path)
-                        ? 'bg-gradient-to-r from-blue-600 to-indigo-600 text-white shadow-md shadow-blue-500/20'
-                        : 'text-gray-600 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-800'
-                    }`}
-                  >
-                    {item.name}
-                  </Link>
-                ))}
+            <div className="lg:hidden absolute top-[60px] sm:top-[68px] left-0 right-0 p-2.5 rounded-2xl bg-white dark:bg-gray-900 border border-gray-200 dark:border-gray-800 shadow-2xl z-50 animate-fade-in-up">
+              <div className="flex flex-col gap-1.5">
+                {navItems.map((item) => {
+                  const ItemIcon = item.icon || Terminal
+                  const active = isActive(item.path)
+                  return (
+                    <Link
+                      key={item.path}
+                      to={item.path}
+                      className={`flex items-center justify-between px-4 py-3 rounded-xl text-sm font-semibold transition-all duration-200 ${
+                        active
+                          ? 'bg-gradient-to-r from-blue-600 to-indigo-600 text-white shadow-lg shadow-blue-500/25'
+                          : 'text-gray-700 dark:text-gray-200 hover:bg-gray-100 dark:hover:bg-gray-800'
+                      }`}
+                    >
+                      <div className="flex items-center gap-3">
+                        <ItemIcon className={`w-4.5 h-4.5 ${active ? 'text-white' : 'text-blue-500'}`} />
+                        <span>{item.name}</span>
+                      </div>
+                      <ChevronRight className={`w-4 h-4 ${active ? 'text-white/80' : 'text-gray-400 opacity-60'}`} />
+                    </Link>
+                  )
+                })}
               </div>
             </div>
           )}

@@ -1,5 +1,6 @@
 import React, { useState } from 'react'
 import { Mail, Phone, MapPin, Send, Github, Linkedin, Twitter } from 'lucide-react'
+import { notifyNotice } from '../ui/ToastNotice'
 
 const Contact = () => {
   const [formData, setFormData] = useState({
@@ -18,16 +19,15 @@ const Contact = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault()
-    // Handle form submission here
-    console.log('Form submitted:', formData)
+    notifyNotice('Thông tin liên hệ', 'Kênh liên hệ hiện chưa mở. Vui lòng quay lại sau!')
   }
 
   const contactInfo = [
     {
       icon: Mail,
       title: 'Email',
-      value: 'alex.morgan@email.com',
-      link: 'mailto:alex.morgan@email.com'
+      value: 'luongpham162k@gmail.com',
+      link: '#'
     },
     {
       icon: Phone,
@@ -83,7 +83,11 @@ const Contact = () => {
                 return (
                   <a
                     key={index}
-                    href={info.link}
+                    href="#"
+                    onClick={(e) => {
+                      e.preventDefault()
+                      notifyNotice('Thông tin liên hệ', 'Địa chỉ liên hệ hiện chưa được cập nhật!')
+                    }}
                     className="flex items-center space-x-4 p-4 bg-gray-50 dark:bg-gray-800 rounded-xl hover:bg-gray-100 dark:hover:bg-gray-700 transition-colors duration-300 group"
                   >
                     <div className="w-12 h-12 bg-gradient-to-r from-blue-600 to-purple-600 rounded-xl flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
@@ -113,7 +117,11 @@ const Contact = () => {
                   return (
                     <a
                       key={index}
-                      href={social.link}
+                      href="#"
+                      onClick={(e) => {
+                        e.preventDefault()
+                        notifyNotice('Thông tin liên hệ', 'Liên kết mạng xã hội hiện chưa được cập nhật!')
+                      }}
                       className="w-12 h-12 bg-gray-100 dark:bg-gray-800 rounded-xl flex items-center justify-center hover:bg-gradient-to-r hover:from-blue-600 hover:to-purple-600 hover:text-white transition-all duration-300 transform hover:scale-110"
                     >
                       <IconComponent className="w-5 h-5" />
@@ -202,7 +210,6 @@ const Contact = () => {
             </form>
           </div>
         </div>
-
       </div>
     </section>
   )

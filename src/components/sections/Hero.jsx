@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react'
 import { Mail, ArrowDown, Terminal, Cloud, Server, Code2, GitBranch, Cpu, Database, Network, Monitor } from 'lucide-react'
 import { siGithub, siGmail, siZalo } from 'simple-icons'
+import { notifyNotice } from '../ui/ToastNotice'
 
 const LinkedinLogo = () => (
   <svg className="w-7 h-7" viewBox="0 0 24 24" role="img" aria-hidden="true">
@@ -130,8 +131,7 @@ const Hero = () => {
               <button
                 type="button"
                 onClick={() => {
-                  const el = document.getElementById('contact-cta')
-                  if (el) el.scrollIntoView({ behavior: 'smooth' })
+                  notifyNotice('Thông tin liên hệ', 'Địa chỉ liên hệ hiện chưa khả dụng. Vui lòng quay lại sau!')
                 }}
                 className="group relative px-6 py-3 bg-white/80 dark:bg-gray-800/80 border border-gray-300 dark:border-gray-600 text-gray-700 dark:text-gray-300 font-semibold text-sm rounded-xl backdrop-blur-sm transition-all duration-300 transform hover:-translate-y-0.5 hover:border-blue-500 dark:hover:border-blue-500 hover:shadow-lg"
               >
@@ -145,34 +145,44 @@ const Hero = () => {
             {/* Social Links */}
             <div className="flex justify-center lg:justify-start gap-4 animate-fade-in-up" style={{animationDelay: '0.8s'}}>
               <a
-                href="https://github.com/ducluong16"
-                target="_blank"
-                rel="noopener noreferrer"
+                href="#"
+                onClick={(e) => {
+                  e.preventDefault()
+                  notifyNotice('Thông tin liên hệ', 'Liên kết GitHub hiện chưa được cập nhật!')
+                }}
                 aria-label="GitHub Profile"
                 className="group relative p-3 bg-white/90 dark:bg-gray-800/90 border border-gray-200 dark:border-gray-700 rounded-xl backdrop-blur-sm hover:border-gray-500 dark:hover:border-gray-400 transition-all duration-300 hover:scale-110 hover:-translate-y-1 hover:shadow-lg dark:hover:shadow-gray-950/40 inline-flex items-center justify-center"
               >
                 <SimpleBrandLogo icon={siGithub} className="text-gray-900 dark:text-white" />
               </a>
               <a
-                href="https://linkedin.com"
-                target="_blank"
-                rel="noopener noreferrer"
+                href="#"
+                onClick={(e) => {
+                  e.preventDefault()
+                  notifyNotice('Thông tin liên hệ', 'Liên kết LinkedIn hiện chưa được cập nhật!')
+                }}
                 aria-label="LinkedIn Profile"
                 className="group relative p-3 bg-white/90 dark:bg-gray-800/90 border border-gray-200 dark:border-gray-700 rounded-xl backdrop-blur-sm hover:border-blue-400 dark:hover:border-blue-500 transition-all duration-300 hover:scale-110 hover:-translate-y-1 hover:shadow-lg hover:shadow-blue-500/20 inline-flex items-center justify-center"
               >
                 <LinkedinLogo />
               </a>
               <a
-                href="mailto:ducluong16@gmail.com"
+                href="#"
+                onClick={(e) => {
+                  e.preventDefault()
+                  notifyNotice('Thông tin liên hệ', 'Địa chỉ Email hiện chưa được cập nhật!')
+                }}
                 aria-label="Send Email"
                 className="group relative p-3 bg-white/90 dark:bg-gray-800/90 border border-gray-200 dark:border-gray-700 rounded-xl backdrop-blur-sm hover:border-red-400 dark:hover:border-red-500 transition-all duration-300 hover:scale-110 hover:-translate-y-1 hover:shadow-lg hover:shadow-red-500/20 inline-flex items-center justify-center"
               >
                 <SimpleBrandLogo icon={siGmail} />
               </a>
               <a
-                href="https://zalo.me"
-                target="_blank"
-                rel="noopener noreferrer"
+                href="#"
+                onClick={(e) => {
+                  e.preventDefault()
+                  notifyNotice('Thông tin liên hệ', 'Địa chỉ Zalo hiện chưa được cập nhật!')
+                }}
                 aria-label="Zalo"
                 className="group relative p-3 bg-white/90 dark:bg-gray-800/90 border border-gray-200 dark:border-gray-700 rounded-xl backdrop-blur-sm hover:border-sky-400 dark:hover:border-sky-500 transition-all duration-300 hover:scale-110 hover:-translate-y-1 hover:shadow-lg hover:shadow-sky-500/20 inline-flex items-center justify-center"
               >

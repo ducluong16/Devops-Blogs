@@ -12,6 +12,7 @@ import ContactPage from './pages/ContactPage'
 import BlogDetailPage from './pages/BlogDetailPage'
 import ProjectDetailPage from './pages/ProjectDetailPage'
 import Footer from './components/layout/Footer'
+import ToastNotice from './components/ui/ToastNotice'
 import { pageVisibility } from './config/pageVisibility'
 
 function ScrollToTop() {
@@ -42,6 +43,7 @@ function App() {
   return (
     <Router>
       <ScrollToTop />
+      <ToastNotice />
       <div className={`min-h-screen transition-colors duration-300 ${darkMode ? 'dark' : ''}`}>
         <div className="min-h-screen bg-gray-50 dark:bg-gray-900 text-gray-900 dark:text-white">
           <Navbar darkMode={darkMode} toggleDarkMode={toggleDarkMode} />

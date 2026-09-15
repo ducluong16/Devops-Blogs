@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
 import { Mail, Copy, Check, Terminal, Github, MapPin, Send, ExternalLink } from 'lucide-react'
 import { siGithub, siZalo } from 'simple-icons'
+import { notifyNotice } from '../../ui/ToastNotice'
 
 const SimpleBrandLogo = ({ icon, className = '' }) => (
   <svg className={`w-4 h-4 ${className}`} viewBox="0 0 24 24" role="img" aria-hidden="true" fill="currentColor">
@@ -10,11 +11,12 @@ const SimpleBrandLogo = ({ icon, className = '' }) => (
 
 export default function HomeCta() {
   const [copied, setCopied] = useState(false)
-  const email = 'ducluong16@gmail.com'
+  const email = 'luongpham162k@gmail.com'
 
   const handleCopyEmail = () => {
     navigator.clipboard.writeText(email)
     setCopied(true)
+    notifyNotice('Thông tin liên hệ', `Đã sao chép email: ${email}!`)
     setTimeout(() => setCopied(false), 2500)
   }
 
@@ -68,7 +70,11 @@ export default function HomeCta() {
 
               {/* Send Mail Button */}
               <a
-                href={`mailto:${email}`}
+                href="#"
+                onClick={(e) => {
+                  e.preventDefault()
+                  notifyNotice('Thông tin liên hệ', 'Địa chỉ email hiện chưa được cập nhật!')
+                }}
                 className="inline-flex items-center gap-2 px-6 py-3 rounded-xl font-bold text-xs sm:text-sm text-white bg-gradient-to-r from-blue-600 via-indigo-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 shadow-lg shadow-blue-500/25 hover:shadow-blue-500/40 transition-all duration-200 transform hover:-translate-y-0.5"
               >
                 <Send className="w-4 h-4" />
@@ -77,9 +83,11 @@ export default function HomeCta() {
 
               {/* GitHub Button */}
               <a
-                href="https://github.com/ducluong16"
-                target="_blank"
-                rel="noopener noreferrer"
+                href="#"
+                onClick={(e) => {
+                  e.preventDefault()
+                  notifyNotice('Thông tin liên hệ', 'Liên kết GitHub hiện chưa được cập nhật!')
+                }}
                 className="inline-flex items-center gap-2 px-5 py-3 rounded-xl font-bold text-xs sm:text-sm bg-gray-100 dark:bg-gray-800 text-gray-800 dark:text-gray-200 border border-gray-200 dark:border-gray-700 hover:border-gray-400 transition-all duration-200"
               >
                 <SimpleBrandLogo icon={siGithub} />
@@ -88,9 +96,11 @@ export default function HomeCta() {
 
               {/* Zalo Button */}
               <a
-                href="https://zalo.me"
-                target="_blank"
-                rel="noopener noreferrer"
+                href="#"
+                onClick={(e) => {
+                  e.preventDefault()
+                  notifyNotice('Thông tin liên hệ', 'Địa chỉ Zalo hiện chưa được cập nhật!')
+                }}
                 className="inline-flex items-center gap-2 px-5 py-3 rounded-xl font-bold text-xs sm:text-sm bg-sky-50 dark:bg-sky-950/40 text-sky-700 dark:text-sky-300 border border-sky-200 dark:border-sky-800 hover:border-sky-400 transition-all duration-200"
               >
                 <SimpleBrandLogo icon={siZalo} />
