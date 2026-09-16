@@ -46,7 +46,7 @@ const stats = [
 
 export default function HomeStats() {
   return (
-    <section id="stats-overview" className="relative z-20 mt-0 md:-mt-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pb-6">
+    <section id="stats-overview" className="relative z-20 -mt-5 md:-mt-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pb-6">
       <div className="grid grid-cols-2 lg:grid-cols-4 gap-3 sm:gap-6">
         {stats.map((stat, idx) => {
           const IconComponent = stat.icon

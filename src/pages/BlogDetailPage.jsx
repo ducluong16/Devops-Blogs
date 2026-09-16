@@ -61,7 +61,7 @@ function CodeBlock({ language, code }) {
   const displayLang = (language || 'TEXT').toUpperCase()
 
   return (
-    <div className="relative my-7 rounded-2xl overflow-hidden border border-slate-700/80 bg-[#0d1117] shadow-xl">
+    <div className="relative my-5 sm:my-7 -mx-4 sm:mx-0 rounded-none sm:rounded-2xl overflow-hidden border-y sm:border border-slate-700/80 bg-[#0d1117] shadow-xl">
       {/* Terminal Header */}
       <div className="flex items-center justify-between px-4 py-2.5 bg-slate-800/90 border-b border-slate-700/80">
         <div className="flex items-center gap-2">
@@ -98,9 +98,9 @@ function CodeBlock({ language, code }) {
           style={vscDarkPlus}
           customStyle={{
             margin: 0,
-            padding: '1.25rem',
+            padding: '1rem',
             background: 'transparent',
-            fontSize: '0.875rem',
+            fontSize: 'inherit',
             lineHeight: '1.65'
           }}
         >
@@ -219,7 +219,7 @@ function BlogDetailPage() {
       return (
         <h2
           id={id}
-          className="group flex items-center text-2xl sm:text-3xl font-bold text-gray-900 dark:text-white mt-12 mb-5 pt-4 scroll-mt-24 border-b border-gray-100 dark:border-gray-800 pb-3"
+          className="group flex items-center text-xl sm:text-3xl font-bold text-gray-900 dark:text-white mt-8 sm:mt-12 mb-4 sm:mb-5 pt-4 scroll-mt-24 border-b border-gray-100 dark:border-gray-800 pb-3"
         >
           <span className="bg-gradient-to-r from-blue-600 to-indigo-600 bg-clip-text text-transparent mr-2.5 select-none">#</span>
           <span>{children}</span>
@@ -239,7 +239,7 @@ function BlogDetailPage() {
       return (
         <h3
           id={id}
-          className="text-xl sm:text-2xl font-bold text-gray-900 dark:text-white mt-8 mb-4 scroll-mt-24 flex items-center"
+          className="text-lg sm:text-2xl font-bold text-gray-900 dark:text-white mt-6 sm:mt-8 mb-3 sm:mb-4 scroll-mt-24 flex items-center"
         >
           <span className="w-2 h-2 rounded-full bg-blue-500 mr-2.5 shrink-0 inline-block"></span>
           <span>{children}</span>
@@ -247,7 +247,7 @@ function BlogDetailPage() {
       )
     },
     p: ({ children }) => (
-      <p className="text-gray-700 dark:text-gray-300 text-base sm:text-lg leading-[1.85] mb-6">
+      <p className="text-gray-700 dark:text-gray-300 text-[15px] sm:text-lg leading-[1.75] sm:leading-[1.85] mb-5 sm:mb-6">
         {children}
       </p>
     ),
@@ -267,17 +267,17 @@ function BlogDetailPage() {
       )
     },
     blockquote: ({ children }) => (
-      <blockquote className="my-6 pl-5 border-l-4 border-blue-500 bg-blue-50/50 dark:bg-blue-950/20 py-3.5 pr-4 rounded-r-2xl italic text-gray-700 dark:text-gray-300 text-base leading-relaxed">
+      <blockquote className="my-5 sm:my-6 pl-4 sm:pl-5 border-l-4 border-blue-500 bg-blue-50/50 dark:bg-blue-950/20 py-3 sm:py-3.5 pr-3 sm:pr-4 rounded-r-2xl italic text-gray-700 dark:text-gray-300 text-sm sm:text-base leading-relaxed">
         {children}
       </blockquote>
     ),
     ul: ({ children }) => (
-      <ul className="space-y-2.5 mb-6 list-disc list-outside pl-6 text-gray-700 dark:text-gray-300 text-base sm:text-lg leading-relaxed">
+      <ul className="space-y-2 sm:space-y-2.5 mb-5 sm:mb-6 list-disc list-outside pl-5 sm:pl-6 text-gray-700 dark:text-gray-300 text-[15px] sm:text-lg leading-relaxed">
         {children}
       </ul>
     ),
     ol: ({ children }) => (
-      <ol className="space-y-2.5 mb-6 list-decimal list-outside pl-6 text-gray-700 dark:text-gray-300 text-base sm:text-lg leading-relaxed">
+      <ol className="space-y-2 sm:space-y-2.5 mb-5 sm:mb-6 list-decimal list-outside pl-5 sm:pl-6 text-gray-700 dark:text-gray-300 text-[15px] sm:text-lg leading-relaxed">
         {children}
       </ol>
     ),
@@ -322,9 +322,9 @@ function BlogDetailPage() {
         </div>
 
         {/* Article Header Card */}
-        <header className="relative rounded-3xl overflow-hidden mb-10 shadow-xl border border-gray-200/80 dark:border-gray-700/80 bg-white dark:bg-gray-800">
+        <header className="relative rounded-2xl sm:rounded-3xl overflow-hidden mb-6 sm:mb-10 shadow-xl border border-gray-200/80 dark:border-gray-700/80 bg-white dark:bg-gray-800">
           {/* Top Gradient Banner */}
-          <div className={`h-36 sm:h-44 bg-gradient-to-r ${post.gradient} relative overflow-hidden flex items-end p-6 sm:p-8`}>
+          <div className={`h-28 sm:h-44 bg-gradient-to-r ${post.gradient} relative overflow-hidden flex items-end p-4 sm:p-8`}>
             <div className="absolute inset-0 opacity-20 bg-grid-pattern"></div>
             <div className="relative z-10">
               <span className="px-3.5 py-1.5 rounded-full text-xs font-bold text-white bg-black/30 backdrop-blur-md border border-white/20">
@@ -334,13 +334,13 @@ function BlogDetailPage() {
           </div>
 
           {/* Header Content */}
-          <div className="p-6 sm:p-10">
-            <h1 className="text-2xl sm:text-4xl lg:text-5xl font-extrabold text-gray-900 dark:text-white tracking-tight leading-tight mb-6">
+          <div className="p-4 sm:p-10">
+            <h1 className="text-xl sm:text-4xl lg:text-5xl font-extrabold text-gray-900 dark:text-white tracking-tight leading-tight mb-4 sm:mb-6">
               {post.title}
             </h1>
 
             {/* Meta row */}
-            <div className="flex flex-wrap items-center justify-between gap-4 pt-4 border-t border-gray-100 dark:border-gray-700/80">
+            <div className="flex flex-wrap items-center justify-between gap-3 sm:gap-4 pt-3 sm:pt-4 border-t border-gray-100 dark:border-gray-700/80">
               <div className="flex flex-wrap items-center gap-4 sm:gap-6 text-xs sm:text-sm text-gray-600 dark:text-gray-300">
                 <div className="flex items-center gap-2">
                   <div className="w-8 h-8 rounded-full bg-gradient-to-br from-blue-600 to-indigo-600 flex items-center justify-center text-white font-bold text-xs shadow-sm">
@@ -498,14 +498,14 @@ function BlogDetailPage() {
             </div>
 
             {/* Main Markdown Article Content */}
-            <article className="rounded-3xl bg-white dark:bg-gray-800 p-6 sm:p-10 lg:p-12 border border-gray-200/80 dark:border-gray-700/80 shadow-xl">
+            <article className="rounded-3xl bg-white dark:bg-gray-800 p-4 sm:p-10 lg:p-12 border border-gray-200/80 dark:border-gray-700/80 shadow-xl">
               <ReactMarkdown components={markdownComponents}>
                 {post.content}
               </ReactMarkdown>
 
               {/* Author Bio Box */}
               <div className="mt-14 pt-8 border-t border-gray-200 dark:border-gray-700">
-                <div className="rounded-2xl p-6 bg-gray-50 dark:bg-gray-700/40 border border-gray-200/80 dark:border-gray-700 flex flex-col sm:flex-row items-center sm:items-start gap-5 text-center sm:text-left">
+                <div className="rounded-2xl p-4 sm:p-6 bg-gray-50 dark:bg-gray-700/40 border border-gray-200/80 dark:border-gray-700 flex flex-col sm:flex-row items-center sm:items-start gap-4 sm:gap-5 text-center sm:text-left">
                   <div className="w-16 h-16 rounded-2xl bg-gradient-to-br from-blue-600 via-indigo-600 to-purple-600 flex items-center justify-center text-white font-bold text-xl shrink-0 shadow-lg shadow-blue-500/20">
                     PL
                   </div>
@@ -591,12 +591,12 @@ function BlogDetailPage() {
                   </h3>
                 </div>
 
-                <div className="grid sm:grid-cols-3 gap-5">
+                <div className="flex gap-4 overflow-x-auto pb-2 sm:pb-0 sm:grid sm:grid-cols-3 sm:gap-5 snap-x snap-mandatory -mx-4 px-4 sm:mx-0 sm:px-0">
                   {relatedPosts.map((item) => (
                     <Link
                       key={item.id}
                       to={`/blog/${item.id}`}
-                      className="group p-5 rounded-2xl bg-white dark:bg-gray-800 border border-gray-200/80 dark:border-gray-700/80 hover:border-blue-500/80 shadow-md hover:shadow-xl transition-all duration-300 flex flex-col justify-between transform hover:-translate-y-1"
+                      className="group min-w-[260px] sm:min-w-0 snap-start p-5 rounded-2xl bg-white dark:bg-gray-800 border border-gray-200/80 dark:border-gray-700/80 hover:border-blue-500/80 shadow-md hover:shadow-xl transition-all duration-300 flex flex-col justify-between transform hover:-translate-y-1 shrink-0 sm:shrink"
                     >
                       <div>
                         <span className="text-[10px] font-bold px-2.5 py-1 rounded-full bg-blue-50 dark:bg-blue-900/30 text-blue-600 dark:text-blue-400 inline-block mb-3">
