@@ -50,7 +50,7 @@ const Hero = () => {
   ]
 
   return (
-    <section id="home" className="min-h-screen flex items-center justify-center relative overflow-hidden bg-gradient-to-br from-white via-blue-50 to-indigo-100 dark:from-gray-900 dark:via-gray-800 dark:to-gray-900 pt-20 pb-6">
+    <section id="home" className="min-h-0 md:min-h-screen flex items-center justify-center relative overflow-hidden bg-gradient-to-br from-white via-blue-50 to-indigo-100 dark:from-gray-900 dark:via-gray-800 dark:to-gray-900 pt-20 pb-16 md:pb-6">
       {/* Animated Background Grid */}
       <div className="absolute inset-0 bg-grid-pattern opacity-10 dark:opacity-5"></div>
       
@@ -84,13 +84,13 @@ const Hero = () => {
           {/* Left Content */}
           <div className="text-center lg:text-left">
             {/* Status Badge */}
-            <div className="inline-flex items-center gap-2 px-4 py-2 bg-green-100 dark:bg-green-900/30 border border-green-200 dark:border-green-800 rounded-full text-green-700 dark:text-green-400 text-sm font-medium backdrop-blur-sm shadow-sm mb-4 animate-fade-in">
+            <div className="inline-flex items-center gap-2 px-4 py-2 bg-green-100 dark:bg-green-900/30 border border-green-200 dark:border-green-800 rounded-full text-green-700 dark:text-green-400 text-sm font-medium backdrop-blur-sm shadow-sm mb-2 sm:mb-4 animate-fade-in">
               <span className="w-2 h-2 bg-green-500 rounded-full animate-pulse"></span>
               Sẵn sàng cho cơ hội mới
             </div>
 
             {/* Fixed Role Title */}
-            <div className="relative min-h-[108px] sm:min-h-[124px] mb-3 animate-fade-in-up" style={{animationDelay: '0.2s'}}>
+            <div className="relative min-h-[90px] sm:min-h-[124px] mb-2 sm:mb-3 animate-fade-in-up" style={{animationDelay: '0.2s'}}>
               <h1 className="font-bold tracking-[-0.035em] leading-[0.98] text-5xl sm:text-6xl lg:text-[64px]">
                 <span className="block text-gray-900 dark:text-white">DevOps</span>
                 <span className="block bg-gradient-to-r from-blue-600 via-cyan-500 to-indigo-500 dark:from-blue-400 dark:via-cyan-300 dark:to-indigo-400 bg-clip-text text-transparent">Engineer</span>
@@ -98,7 +98,7 @@ const Hero = () => {
             </div>
 
             {/* Typing Specialization */}
-            <div className="flex min-h-10 sm:min-h-7 items-center justify-center lg:justify-start gap-2 mb-4 animate-fade-in-up" style={{animationDelay: '0.35s'}}>
+            <div className="flex min-h-10 sm:min-h-7 items-center justify-center lg:justify-start gap-2 mb-2 sm:mb-4 animate-fade-in-up" style={{animationDelay: '0.35s'}}>
               <span className="w-8 h-px shrink-0 bg-gradient-to-r from-blue-600 to-cyan-400"></span>
               <p className="text-sm sm:text-base font-semibold tracking-wide text-cyan-600 dark:text-cyan-400">
                 {typedText}<span className="inline-block ml-1 w-0.5 h-5 bg-cyan-500 align-middle animate-blink"></span>
@@ -106,13 +106,13 @@ const Hero = () => {
             </div>
 
             {/* Description */}
-            <p className="text-sm sm:text-base text-gray-600 dark:text-gray-300 max-w-xl mx-auto lg:mx-0 mb-5 leading-6 animate-fade-in-up" style={{animationDelay: '0.5s'}}>
+            <p className="text-sm sm:text-base text-gray-600 dark:text-gray-300 max-w-xl mx-auto lg:mx-0 mb-3 sm:mb-5 leading-6 animate-fade-in-up" style={{animationDelay: '0.5s'}}>
               Mình là <span className="font-semibold text-gray-900 dark:text-white">Lương</span>, kĩ sư Devops đang làm việc tại Hà Nội. Blog này là nơi mình chia sẻ những kiến thức và trải nghiệm thực tế trong ngành IT.
               Tập trung vào <span className="font-semibold text-blue-600 dark:text-blue-400">Linux, Kubernetes, CI/CD GitOps</span> và hạ tầng Cloud để tự động hóa quy trình vận hành.
             </p>
 
             {/* CTA Buttons */}
-            <div className="flex flex-col sm:flex-row justify-center lg:justify-start gap-3 mb-5 animate-fade-in-up" style={{animationDelay: '0.65s'}}>
+            <div className="flex flex-col sm:flex-row justify-center lg:justify-start gap-3 mb-3 sm:mb-5 animate-fade-in-up" style={{animationDelay: '0.65s'}}>
               <button
                 type="button"
                 onClick={() => {
