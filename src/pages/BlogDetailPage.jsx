@@ -18,7 +18,8 @@ import {
   Terminal,
   ExternalLink,
   Sparkles,
-  Link as LinkIcon
+  Link as LinkIcon,
+  X
 } from 'lucide-react'
 import ReactMarkdown from 'react-markdown'
 import { Prism as SyntaxHighlighter } from 'react-syntax-highlighter'
@@ -406,94 +407,113 @@ function BlogDetailPage() {
           </div>
         </header>
 
-        {/* Main Content Layout (Sidebar TOC + Article Body) */}
-        <div className="grid lg:grid-cols-12 gap-8 items-start">
-          {/* Left Column: Sticky Table of Contents (Desktop) */}
-          <aside className="hidden lg:block lg:col-span-4 xl:col-span-3 sticky top-24">
-            <div className="p-5 rounded-2xl bg-white dark:bg-gray-800 border border-gray-200/80 dark:border-gray-700/80 shadow-lg">
-              <div className="flex items-center justify-between pb-3.5 border-b border-gray-100 dark:border-gray-700/80 mb-4">
-                <div className="flex items-center gap-2">
-                  <ListOrdered className="w-4 h-4 text-blue-600 dark:text-blue-400" />
-                  <span className="text-xs font-extrabold uppercase tracking-wider text-gray-900 dark:text-white">
-                    Mục Lục Bài Viết
-                  </span>
-                </div>
-                <span className="text-[11px] font-mono text-gray-400">
-                  {Math.round(readProgress)}%
-                </span>
-              </div>
-
-              <nav className="space-y-1 max-h-[calc(100vh-200px)] overflow-y-auto pr-1">
-                {headingGroups.map((group) => {
-                  const isGroupActive = activeHeading === group.id || group.children.some((c) => c.id === activeHeading)
-                  return (
-                    <div key={group.id} className="space-y-1">
-                      <a
-                        href={`#${group.id}`}
-                        className={`block py-1.5 px-2.5 rounded-lg text-xs font-semibold transition-all leading-snug ${
-                          activeHeading === group.id
-                            ? 'bg-blue-50 dark:bg-blue-900/30 text-blue-600 dark:text-blue-400 font-bold border-l-2 border-blue-600'
-                            : 'text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white hover:bg-gray-50 dark:hover:bg-gray-700/50'
-                        }`}
-                      >
-                        {group.text}
-                      </a>
-
-                      {group.children.length > 0 && (
-                        <div className="pl-3 space-y-1 border-l border-gray-200/80 dark:border-gray-700 ml-2">
-                          {group.children.map((child) => (
-                            <a
-                              key={child.id}
-                              href={`#${child.id}`}
-                              className={`block py-1 px-2 rounded-md text-[11px] transition-all leading-snug ${
-                                activeHeading === child.id
-                                  ? 'text-blue-600 dark:text-blue-400 font-bold bg-blue-50/60 dark:bg-blue-900/20'
-                                  : 'text-gray-500 dark:text-gray-400 hover:text-gray-800 dark:hover:text-gray-200'
-                              }`}
-                            >
-                              {child.text}
-                            </a>
-                          ))}
-                        </div>
-                      )}
-                    </div>
-                  )
-                })}
-              </nav>
-            </div>
-          </aside>
-
-          {/* Right/Center Column: Article Body */}
-          <main className="lg:col-span-8 xl:col-span-9 min-w-0">
-            {/* Mobile Collapsible TOC */}
-            <div className="lg:hidden mb-8 rounded-2xl bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 shadow-md p-4">
+        {/* Main Content Layout */}
+        <div className="max-w-4xl mx-auto">
+          {/* Article Body */}
+          <main className="min-w-0">
+            {/* Floating TOC Button + Bottom Sheet */}
+            <div>
+              {/* Floating TOC Button */}
               <button
                 type="button"
-                onClick={() => setMobileTocOpen(!mobileTocOpen)}
-                className="w-full flex items-center justify-between text-left font-bold text-sm text-gray-900 dark:text-white"
+                onClick={() => setMobileTocOpen(true)}
+                className="fixed bottom-6 right-4 sm:right-6 z-50 flex items-center gap-2 px-4 py-3 rounded-2xl bg-gradient-to-r from-blue-600 to-indigo-600 text-white font-semibold text-sm shadow-xl shadow-blue-500/30 hover:shadow-2xl hover:shadow-blue-500/40 transition-all duration-300 hover:-translate-y-0.5 active:scale-95 cursor-pointer"
+                aria-label="Mở mục lục bài viết"
               >
-                <div className="flex items-center gap-2">
-                  <ListOrdered className="w-4 h-4 text-blue-500" />
-                  <span>Mục lục bài viết ({headings.length} phần)</span>
-                </div>
-                <ChevronDown className={`w-4 h-4 transition-transform ${mobileTocOpen ? 'rotate-180' : ''}`} />
+                <ListOrdered className="w-4 h-4" />
+                <span>Mục lục</span>
+                <span className="ml-1 text-[10px] font-mono bg-white/20 px-1.5 py-0.5 rounded-full">{Math.round(readProgress)}%</span>
               </button>
 
+              {/* Bottom Sheet Overlay */}
               {mobileTocOpen && (
-                <nav className="mt-4 pt-4 border-t border-gray-100 dark:border-gray-700 space-y-2 max-h-60 overflow-y-auto">
-                  {headings.map((h) => (
-                    <a
-                      key={h.id}
-                      href={`#${h.id}`}
-                      onClick={() => setMobileTocOpen(false)}
-                      className={`block text-xs py-1 ${
-                        h.level === 3 ? 'pl-4 text-gray-500' : 'font-semibold text-gray-700 dark:text-gray-300'
-                      }`}
-                    >
-                      {h.text}
-                    </a>
-                  ))}
-                </nav>
+                <div className="fixed inset-0 z-[70]" onClick={() => setMobileTocOpen(false)}>
+                  {/* Backdrop */}
+                  <div className="absolute inset-0 bg-black/40 backdrop-blur-sm" />
+
+                  {/* Bottom Sheet */}
+                  <div
+                    className="absolute bottom-0 left-0 right-0 max-h-[70vh] bg-white dark:bg-gray-800 rounded-t-3xl shadow-2xl border-t border-gray-200 dark:border-gray-700 flex flex-col animate-slide-up"
+                    onClick={(e) => e.stopPropagation()}
+                  >
+                    {/* Handle Bar */}
+                    <div className="flex justify-center pt-3 pb-1">
+                      <div className="w-10 h-1 rounded-full bg-gray-300 dark:bg-gray-600" />
+                    </div>
+
+                    {/* Header */}
+                    <div className="flex items-center justify-between px-5 py-3 border-b border-gray-100 dark:border-gray-700">
+                      <div className="flex items-center gap-2">
+                        <ListOrdered className="w-4 h-4 text-blue-600 dark:text-blue-400" />
+                        <span className="text-sm font-extrabold uppercase tracking-wider text-gray-900 dark:text-white">
+                          Mục Lục Bài Viết
+                        </span>
+                      </div>
+                      <div className="flex items-center gap-3">
+                        <span className="text-xs font-mono text-gray-400">
+                          {Math.round(readProgress)}%
+                        </span>
+                        <button
+                          type="button"
+                          onClick={() => setMobileTocOpen(false)}
+                          className="p-1.5 rounded-xl hover:bg-gray-100 dark:hover:bg-gray-700 transition-colors"
+                          aria-label="Đóng mục lục"
+                        >
+                          <X className="w-5 h-5 text-gray-500 dark:text-gray-400" />
+                        </button>
+                      </div>
+                    </div>
+
+                    {/* Progress Bar */}
+                    <div className="h-0.5 bg-gray-100 dark:bg-gray-700">
+                      <div
+                        className="h-full bg-gradient-to-r from-blue-600 to-indigo-600 transition-all duration-300"
+                        style={{ width: `${readProgress}%` }}
+                      />
+                    </div>
+
+                    {/* TOC List */}
+                    <nav className="flex-1 overflow-y-auto px-5 py-4 space-y-1">
+                      {headingGroups.map((group) => {
+                        const isGroupActive = activeHeading === group.id || group.children.some((c) => c.id === activeHeading)
+                        return (
+                          <div key={group.id} className="space-y-1">
+                            <a
+                              href={`#${group.id}`}
+                              onClick={() => setMobileTocOpen(false)}
+                              className={`block py-2 px-3 rounded-xl text-sm font-semibold transition-all leading-snug ${
+                                activeHeading === group.id
+                                  ? 'bg-blue-50 dark:bg-blue-900/30 text-blue-600 dark:text-blue-400 font-bold border-l-2 border-blue-600'
+                                  : 'text-gray-700 dark:text-gray-300 hover:bg-gray-50 dark:hover:bg-gray-700/50 active:bg-gray-100'
+                              }`}
+                            >
+                              {group.text}
+                            </a>
+
+                            {group.children.length > 0 && (
+                              <div className="pl-4 space-y-0.5 border-l-2 border-gray-200/80 dark:border-gray-700 ml-3">
+                                {group.children.map((child) => (
+                                  <a
+                                    key={child.id}
+                                    href={`#${child.id}`}
+                                    onClick={() => setMobileTocOpen(false)}
+                                    className={`block py-1.5 px-2.5 rounded-lg text-xs transition-all leading-snug ${
+                                      activeHeading === child.id
+                                        ? 'text-blue-600 dark:text-blue-400 font-bold bg-blue-50/60 dark:bg-blue-900/20'
+                                        : 'text-gray-500 dark:text-gray-400 hover:text-gray-800 dark:hover:text-gray-200 active:bg-gray-100'
+                                    }`}
+                                  >
+                                    {child.text}
+                                  </a>
+                                ))}
+                              </div>
+                            )}
+                          </div>
+                        )
+                      })}
+                    </nav>
+                  </div>
+                </div>
               )}
             </div>
 
