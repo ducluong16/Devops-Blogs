@@ -61,7 +61,7 @@ function CodeBlock({ language, code }) {
   const displayLang = (language || 'TEXT').toUpperCase()
 
   return (
-    <div className="relative my-5 sm:my-7 -mx-4 sm:mx-0 rounded-none sm:rounded-2xl overflow-hidden border-y sm:border border-slate-700/80 bg-[#0d1117] shadow-xl">
+    <div className="relative my-5 sm:my-7 rounded-xl sm:rounded-2xl overflow-hidden border border-slate-700/80 bg-[#0d1117] shadow-xl">
       {/* Terminal Header */}
       <div className="flex items-center justify-between px-4 py-2.5 bg-slate-800/90 border-b border-slate-700/80">
         <div className="flex items-center gap-2">
@@ -294,7 +294,7 @@ function BlogDetailPage() {
   }
 
   return (
-    <div className="min-h-screen bg-gray-50/60 dark:bg-gray-900/90 section-top-pad pb-24 relative">
+    <div className="min-h-screen bg-gray-50/60 dark:bg-gray-900/90 section-top-pad pb-24 relative overflow-x-hidden">
       {/* Top Reading Progress Bar */}
       <div
         className="fixed top-0 left-0 h-1 bg-gradient-to-r from-blue-600 via-cyan-500 to-indigo-600 z-[60] transition-all duration-100"
@@ -464,7 +464,7 @@ function BlogDetailPage() {
           </aside>
 
           {/* Right/Center Column: Article Body */}
-          <main className="lg:col-span-8 xl:col-span-9">
+          <main className="lg:col-span-8 xl:col-span-9 min-w-0">
             {/* Mobile Collapsible TOC */}
             <div className="lg:hidden mb-8 rounded-2xl bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 shadow-md p-4">
               <button
@@ -498,7 +498,7 @@ function BlogDetailPage() {
             </div>
 
             {/* Main Markdown Article Content */}
-            <article className="rounded-3xl bg-white dark:bg-gray-800 p-4 sm:p-10 lg:p-12 border border-gray-200/80 dark:border-gray-700/80 shadow-xl">
+            <article className="rounded-2xl sm:rounded-3xl bg-white dark:bg-gray-800 p-4 sm:p-10 lg:p-12 border border-gray-200/80 dark:border-gray-700/80 shadow-xl overflow-hidden" style={{ overflowWrap: 'break-word', wordBreak: 'break-word' }}>
               <ReactMarkdown components={markdownComponents}>
                 {post.content}
               </ReactMarkdown>
